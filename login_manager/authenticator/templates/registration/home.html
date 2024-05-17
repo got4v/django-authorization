@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% block content %}
+{% if welcome_message %}
+<h1>Welcome to the Home Page Customer</h1>
+<p>{{ welcome_message }}</p>
+<form method="post" action="{% url 'logout' %}">
+{% csrf_token %}
+<button type="submit">Logout</button>
+</form>
+{% endif %}
+{% endblock %}

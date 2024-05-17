@@ -1,0 +1,19 @@
+{% extends 'base.html' %}    
+{% block content %}
+<h1>Welcome to the Home Page Customer</h1>
+{% if welcome_message %}
+<p>{{ welcome_message }}</p>
+<form method="post" action="{% url 'logout' %}">
+{% csrf_token %}
+<button type="submit">Logout</button>
+</form>
+{% else %}
+<form method="POST">
+{% csrf_token %}
+{{ form }}
+<button type="submit">Register</button>
+<a href="{% url 'login' %}" class="btn btn-primary">Login Here!</a>
+</form>
+{% endif %}
+{% endblock %}
+
